@@ -15,7 +15,7 @@ const bebidas = [
 ];
 
 function mostrarListaDeProductos() {
-  let MostrarProductos = confirm("deseas ver la lista de productos?") 
+  let MostrarProductos = confirm("deseas ver la lista de productos?")
   if (MostrarProductos) {
     bebidas.forEach((bebida) => console.log(bebida.nombre));
   }
@@ -25,49 +25,49 @@ mostrarListaDeProductos();
 function agregarBebidasAlCarrito() {
   let carrito = [];
   totalPrecio = 0;
-  dineroDisponible= 20000;
+  dineroDisponible = 20000;
   continuarBuscando = true
   while (continuarBuscando) {
     let bebidaElegida = prompt("Ingrese la bebida que deseas agregar al carrito");
     let bebidaEncontrada = bebidas.find(bebida =>
       bebida.nombre.toLowerCase().includes(bebidaElegida.toLowerCase()));
-    
-    if(bebidaEncontrada){
+
+    if (bebidaEncontrada) {
       console.log(bebidaEncontrada.nombre + " " + bebidaEncontrada.volumen + " Precio: $" + bebidaEncontrada.precio);
       carrito.push(bebidaEncontrada);
       alert("bebida agregada al carrito")
-      totalPrecio+=bebidaEncontrada.precio
-    }else {
+      totalPrecio += bebidaEncontrada.precio
+    } else {
       alert("Bebida no encontrada. 😔");
     }
     continuarBuscando = confirm("¿Quieres seguir buscando?");
   }
   console.log("contenido del carrito");
-carrito.forEach(bebida => {
-  console.log('Nombre:', bebida.nombre, '- Volumen:', bebida.volumen, '- Precio:', '$' + bebida.precio);
-});
-console.log("TOTAL DEL CARRITO: "+ totalPrecio + "$");
-alert("total del carrito: "+ totalPrecio + "$");
-pagar()
+  carrito.forEach(bebida => {
+    console.log('Nombre:', bebida.nombre, '- Volumen:', bebida.volumen, '- Precio:', '$' + bebida.precio);
+  });
+  console.log("TOTAL DEL CARRITO: " + totalPrecio + "$");
+  alert("total del carrito: " + totalPrecio + "$");
+  pagar()
 }
 
 //metodo de pago
-function pagar(){
-  let metodoDePago= prompt("ingrese el metodo de pago (VISA, MASTERCARD O MERCADO PAGO)").toUpperCase();
-  switch(metodoDePago.toUpperCase()){
+function pagar() {
+  let metodoDePago = prompt("ingrese el metodo de pago (VISA, MASTERCARD O MERCADO PAGO)").toUpperCase();
+  switch (metodoDePago.toUpperCase()) {
     case "VISA": alert("usted paga con " + metodoDePago);
-    break;
+      break;
     case "MASTERCARD": alert("usted paga con " + metodoDePago);
-    break;
+      break;
     case "MERCADO PAGO": alert("usted paga con " + metodoDePago);
-    break;
+      break;
   }
-  if(totalPrecio>dineroDisponible){
+  if (totalPrecio > dineroDisponible) {
     alert("saldo insuficiente")
-  }else{
+  } else {
     alert("la compra se realizó con exito")
   }
-  
+
 }
 agregarBebidasAlCarrito()
 
