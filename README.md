@@ -26,6 +26,9 @@ El usuario puede elegir entre los siguientes métodos de pago:
 - MasterCard
 - Mercado Pago
 
+## Links
 
-
-
+Proceso a dejar los links de mi proyecto:
+- Github Pages: https://fernandosatti.github.io/2-pre-entrega-javascript/index.html
+- Repositorio:  https://github.com/FernandoSatti/2-pre-entrega-javascript
+- Netlify:      https://alfonsabebidas.netlify.app

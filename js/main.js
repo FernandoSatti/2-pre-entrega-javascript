@@ -53,7 +53,7 @@ pagar()
 
 //metodo de pago
 function pagar(){
-  let metodoDePago= prompt("ingrese el metodo de pago").toUpperCase();
+  let metodoDePago= prompt("ingrese el metodo de pago (VISA, MASTERCARD O MERCADO PAGO)").toUpperCase();
   switch(metodoDePago.toUpperCase()){
     case "VISA": alert("usted paga con " + metodoDePago);
     break;
