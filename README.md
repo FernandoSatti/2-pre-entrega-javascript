@@ -1,71 +1,31 @@
+# Proyecto de Venta de Bebidas
 
-<h1>Primera Pre-entrega del curso de Javacript</h1>
-<br>
-
-<h2>Juego de piedra papel o tijera</h2>
-Este proyecto es un juego simple de Piedra, Papel o Tijera implementado en JavaScript. El juego permite al usuario competir contra la consola en una serie de 3 rondas. Y demostrar quien es el mejor!
-<br>
-<br>
-<h2>Como se realizó el juego</h2>
-Se utilizó una función principal:
-
-- La función principal "jugarPiedraPapelTijera()" inicia el juego y lleva a cabo una serie de rondas.
-- El usuario ingresa su nombre y elige entre "piedra", "papel" o "tijera" en cada ronda. 
-- La computadora selecciona una opción aleatoria y se determina el ganador de cada ronda.
-- Esto se logra utilizando un arreglo llamado "opciones" que contiene las tres posibles elecciones. La función selecciona una opción aleatoria del arreglo y la devuelve como la elección de la computadora.
-
-![image](https://github.com/FernandoSatti/1-pre-entrega/blob/master/img/img-readme/funcion-principal.png)
-
-<br>
-
-<h2>El sistema de rondas del juego</h2>
-Se utilizó el ciclo for. Que se utiliza para repetir un bloque de código un número específico de veces. En este caso se juegan 3 rondas.
-
-![image](https://github.com/FernandoSatti/1-pre-entrega/blob/master/img/img-readme/for.png)
-
-- "let i = 1" Esto inicializa una variable i con el valor 1. 
-- "i <= 3" El ciclo se ejecutará mientras i sea menor o igual a 3, lo que significa que se ejecutará exactamente tres veces (una vez por cada ronda).
-- "i++" Esto incrementa el valor de i en 1 después de cada iteración del ciclo. Es decir, después de cada ronda, i aumentará en 1.
+Este proyecto, implementado en el archivo `main.js`, forma parte de mi segunda entrega para el curso de Coder House. La aplicación simula una página de venta de bebidas donde los usuarios pueden explorar productos, agregar al carrito y realizar compras simuladas.
 
 
-<br>
-<br>
+## Lista de Bebidas
 
-<h2>La puntuación del juego</h2>
-Se utilizan dos variables para llevar un registro de la puntuación: "victoriasJugador" y "victoriasComputadora". Estas variables se inicializan en 0 al comienzo del juego:
+La lista de bebidas está definida en el archivo `main.js` como un array de objetos, cada uno representando una bebida con su nombre, volumen y precio.
 
-- let victoriasJugador = 0;
-- let victoriasComputadora = 0;
-- dentro del ciclo for, se determina el ganador de cada ronda con condiciones if, else if y else.
-- "victoriasJugador++" indica que sumaremos un punto al ganar. Lo mismo para la consola. 
+## Funcionalidades
 
-![image](https://github.com/FernandoSatti/1-pre-entrega/blob/master/img/img-readme/contador.png)
+- **Mostrar Lista de Productos:** Se muestra una lista de productos al usuario si así lo elige.
+- **Agregar al Carrito:** El usuario puede agregar bebidas al carrito y ver el contenido del carrito.
+- **Pagar:** Se utiliza un switch en la función `pagar()` para manejar los diferentes métodos de pago. Además, se simula el proceso de pago con un límite de dinero disponible para el usuario, inicialmente establecido en 20000 pesos.
 
-<br>
+## Instrucciones de Uso
 
-<h3>Sistema de respuesta de la consola:</h3>
-En el código podemos observar que:
+1. Ejecuta la función `mostrarListaDeProductos()` para ver la lista de productos.
+2. Usa la función `agregarBebidasAlCarrito()` para agregar bebidas al carrito.
+3. La función `pagar()` utiliza un switch para simular el proceso de pago, y el usuario tiene un saldo simulado de 20000 pesos.
 
-![image](https://github.com/FernandoSatti/1-pre-entrega/blob/master/img/img-readme/funcion.png)
-<br>
+## Metodo de Pago
 
-- Math.random() genera un número aleatorio entre 0  y 1.
+El usuario puede elegir entre los siguientes métodos de pago:
+- VISA
+- MasterCard
+- Mercado Pago
 
-- Math.random() * 3 amplía ese número para estar entre 0 (incluido) y 3 (excluido).
 
-- Math.floor(Math.random() * 3) redondea ese número a 0, 1 o 2.
 
-- Entonces, Math.floor(Math.random() * 3) se utiliza para seleccionar aleatoriamente una de las tres opciones ("piedra", "papel" o "tijera") para la elección de la computadora en el juego. Multiplicar por 3 es necesario porque queremos un número entero entre 0 y 2 para seleccionar índices en un arreglo con tres elementos
-<br>
-
-<h2>Links</h2>
-
-<h3>Repositorio de Github</h3>
-https://github.com/FernandoSatti/1-pre-entrega
-
-<h3>Repositorio de Github Pages</h3>
-https://fernandosatti.github.io/1-pre-entrega/index.html
-
-<h3>Repositorio de Netlify</h3>
-https://piedrapapelotijeracoder.netlify.app (Recomiendo entrar desde aca!)
 

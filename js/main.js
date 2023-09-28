@@ -22,7 +22,7 @@ function mostrarListaDeProductos() {
 }
 mostrarListaDeProductos();
 
-function seguirBuscando() {
+function agregarBebidasAlCarrito() {
   let carrito = [];
   totalPrecio = 0;
   dineroDisponible= 20000;
@@ -69,5 +69,5 @@ function pagar(){
   }
   
 }
-seguirBuscando()
+agregarBebidasAlCarrito()
 
