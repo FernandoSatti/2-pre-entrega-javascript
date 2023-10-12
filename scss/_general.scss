@@ -11,33 +11,209 @@ body{
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(235,162,11,1) 49%, rgba(255,255,255,1) 100%);
 }
 
-.grid-container{
+.contenedor-de-productos{
     display: grid;
     grid-template-columns: repeat(4,1fr);
     gap: 10px;
     padding: 20px;
 }
+.flex-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
 
-a{
-    text-decoration: none;
-    figure{
-        &:hover{
-            transform: scale(1.05);
-            transition: 300ms ease;
-        }
+.h2-list-articulos {
+    margin-bottom: 10px;
+    text-shadow: 2px 1px 2px rgba(0, 0, 0, 1);
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.lupa-svg{
+    width: 38px;
+    background-color: rgb(240, 169, 4);
+    border: 2px solid black;
+    border-radius: 2px;
+    &:hover{
+        transform: rotate(360deg);
+        transition: 150ms ease;
+        
+    }
+}
+
+#searchInput {
+    padding: 8px;
+    margin-right: 5px;
+    color: black;
+    border-radius: 10px;
+}
+
+#searchButton {
+    padding: 2px;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(240, 169, 4);
+    &:hover{
+        transform: scale(1.1);
+        transition: 300ms ease;
+        background-color: #965306;
+        border-radius: 5px;
+    }
+}
+
+
+
+figure{
+        position: relative;
+        overflow: hidden;
         img{
             width: 100%;
             border: 1px solid rgb(71, 95, 96);
             border-radius: 20px;
+            filter: sepia(0.3);
+            &:hover{
+                filter: sepia(0);
+                transition:300ms ease;
+                
+            }
         }
         figcaption{
+            font-size: 1em; /* Puedes ajustar el tamaño inicial según tus necesidades */
+            white-space: nowrap;
+            background-color: #fff;
+            
             text-align: center;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
         }
+        
+        .boton-al-carrito{
+            border: 1px solid black;
+            background-color: rgb(212, 139, 3);
+            width: 100%;
+            text-shadow:1px 1px 1px #000000;
+            padding: 7px 0px;
+            &:hover{
+                transform: perspective(1);
+                transition: 300ms ease;
+                background-color: orange;
+                box-shadow: 0 0 10px rgba(204, 103, 8, 0.5);
+            }
+        }
     }
-}
+
 h1{
     border: 1px solid black;
     background-color: rgb(165, 64, 5);
     text-shadow: 2px 1px 2px rgba(0, 0, 0, 1);
+}
+
+
+.agregar-al-carrito {
+    position: absolute;
+    top: 10px;
+    right: 19px;
+    font-size: 30px;
+    padding:0 10px;
+    background-color: rgb(240, 169, 4); 
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+
+.agregar-al-carrito:hover {
+    color: #000000; 
+}
+.span-price{
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    border:1px solid  black;
+    background-color: #1f1e1e;
+}
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Altura mínima del 100% del viewport */
+  margin: 0;
+}
+main{
+    flex: 1;
+}
+
+.carrito {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgb(240, 169, 4); 
+    color: #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.carrito:hover {
+    background-color: #e7e2e2;
+}
+
+.icono-carrito {
+    width: 24px;
+    height: 24px;
+}
+
+.cantidad {
+    position: absolute;
+    top: 10px;
+    right: 40px;
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 4px 8px;
+    font-size: 14px;
+    border-radius: 50%;
+}
+.cantidad-nav{
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 4px 8px;
+    font-size: 14px;
+    border-radius: 50%;
+}
+
+.tabla-de-productos {
+    background-color: rgba(100, 6, 6, 0.418);
+    color: orange;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        th, td {
+            border: 1px solid orange;
+            padding: 10px;
+            text-align: left;
+            text-shadow: 1px 1px 1px black;
+        }
+    }
+}
+
+th {
+    background-color: #ff9900; /* Naranja más claro para los títulos */
 }

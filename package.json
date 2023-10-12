@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "sass": "^1.68.0"
+    "sass": "^1.69.1"
   },
   "name": "javascript",
   "version": "1.0.0",

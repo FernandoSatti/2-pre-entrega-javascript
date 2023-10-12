@@ -2,6 +2,10 @@
     border: 1px solid black;
     border-radius: 5px;
 }
-.logo-footer{
-    width: 170px;
+.container-logo-footer{
+    display: flex;
+    justify-content: center;
+    .logo-footer{
+        width: 170px;
+    }
 }
