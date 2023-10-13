@@ -1,30 +1,54 @@
-# Proyecto de Venta de Bebidas
+## Alfonsa - Venta de Bebidas
 
-Este proyecto, implementado en el archivo `main.js`, forma parte de mi segunda entrega para el curso de Coder House. La aplicación simula una página de venta de bebidas donde los usuarios pueden explorar productos, agregar al carrito y realizar compras simuladas.
+### Descripción del Proyecto
 
+Alfonsa es una plataforma de venta de bebidas. La pagina proporciona a los usuarios la capacidad de explorar el catálogo de bebidas, buscar los productos y agregar artículos al carrito de compras. Además, cuenta con una sección de carrito de compras que muestra la lista de productos seleccionados, permite la eliminación de elementos y facilita el proceso de compra.
 
-## Lista de Bebidas
+### Tecnologías Utilizadas
 
-La lista de bebidas está definida en el archivo `main.js` como un array de objetos, cada uno representando una bebida con su nombre, volumen y precio.
+- **HTML5:** El lenguaje de marcado se utiliza para la estructura básica de las páginas.
+  
+- **CSS3:** Se utiliza para el diseño y estilo de la interfaz de usuario.
 
-## Funcionalidades
+- **JavaScript:** El lenguaje de programación se utiliza para la lógica dinámica de la aplicación. Se empleó la manipulación del DOM, la gestión del carrito de compras y la interactividad de la interfaz. el uso de LocalStorage y Eventos.
 
-- **Mostrar Lista de Productos:** Se muestra una lista de productos al usuario si así lo elige.
-- **Agregar al Carrito:** El usuario puede agregar bebidas al carrito y ver el contenido del carrito.
-- **Pagar:** Se utiliza un switch en la función `pagar()` para manejar los diferentes métodos de pago. Además, se simula el proceso de pago con un límite de dinero disponible para el usuario, inicialmente establecido en 20000 pesos.
+### Estructura del Proyecto
 
-## Instrucciones de Uso
+- **index.html:** La página principal que muestra la lista de Bebidas y proporciona la funcionalidad de búsqueda.
 
-1. Ejecuta la función `mostrarListaDeProductos()` para ver la lista de productos.
-2. Usa la función `agregarBebidasAlCarrito()` para agregar bebidas al carrito.
-3. La función `pagar()` utiliza un switch para simular el proceso de pago, y el usuario tiene un saldo simulado de 20000 pesos.
+- **carrito.html:** La página que muestra el contenido del carrito de compras, permite al usuario eliminar lo seleccionado o completar la compra.
 
-## Metodo de Pago
+- **main.js:** Contiene la lógica principal de la aplicación, incluida la carga de productos, la gestión del carrito de compras y la interactividad de la interfaz.
 
-El usuario puede elegir entre los siguientes métodos de pago:
-- VISA
-- MasterCard
-- Mercado Pago
+- **carrito.js:** Contiene la lógica específica para la página del carrito, incluida la visualización de productos en el carrito, la eliminación de elementos y la funcionalidad de compra.
+
+### Funcionalidades Principales
+
+1. **Carga de Productos:** Se utiliza un bucle `for...of` para recorrer la lista de productos y agregar dinámicamente elementos al DOM.
+
+2. **Búsqueda de Productos:** La función `filtrarBebidas` se activa mediante el evento de entrada (`input`) en la barra de búsqueda. Utiliza el método `filter` para mostrar solo los productos que coinciden con el término de búsqueda.
+
+3. **Gestión del Carrito de Compras:** La función `agregarAlcarrito` se activa al hacer clic en el botón "Agregar al Carrito". Utiliza el método `find` para buscar el producto seleccionado y actualiza la cantidad en el carrito o agrega un nuevo elemento si es necesario.
+
+4. **Carrito de Compras Persistente:** Se utiliza `localStorage` para almacenar y recuperar la información del carrito de compras, lo que permite que los datos persistan incluso después de cerrar y volver a abrir la aplicación.
+
+5. **Eliminación de Productos del Carrito:** En la página del carrito, se utiliza el método `splice` para eliminar productos del carrito cuando se hace clic en el botón "Eliminar".
+
+6. **Compra y Vaciado del Carrito:** Al hacer clic en el botón "Comprar ahora", se vacía el carrito de compras y se muestra un mensaje de agradecimiento.
+
+### Cómo Usar
+
+1. Abre el archivo `index.html` en tu navegador para explorar la lista de productos y realizar búsquedas.
+
+2. Haz clic en el botón "Agregar al Carrito" para añadir productos a tu carrito de compras.
+
+3. Dirígete a la página `carrito.html` para ver y gestionar los productos en tu carrito.
+
+4. Completa la compra haciendo clic en el botón "Comprar ahora".
+
+### Estado del Proyecto
+
+El proyecto está en desarrollo activo 
 
 ## Links
 
