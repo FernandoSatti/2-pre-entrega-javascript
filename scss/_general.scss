@@ -41,6 +41,8 @@ body {
     background-color: rgb(240, 169, 4);
     border: 2px solid black;
     border-radius: 2px;
+    position: relative;
+    bottom: 7px;
 
     &:hover {
         transform: rotate(360deg);

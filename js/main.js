@@ -16,93 +16,84 @@ const bebidas = [
 
 const contenedorDeProductos = document.querySelector(".contenedor-de-productos");
 const indicadorCantidadCarrito = document.querySelector("#carrito-cantidad");
-const tablaDeProductos = document.querySelector("#tabla-de-productos")
+const searchInput = document.getElementById("searchInput");
 let bebidasEncarrito;
 let bebidasEncarritoLStorage = localStorage.getItem("bebidas-en-carrito");
 
-
 if (bebidasEncarritoLStorage) {
   bebidasEncarrito = JSON.parse(bebidasEncarritoLStorage);
-  indicadorCarrito()
+  indicadorCarrito();
 } else {
-  bebidasEncarrito = []
+  bebidasEncarrito = [];
 }
-
 
 function cargarBebidas() {
-
-  bebidas.forEach(bebida => {
-
-    const figure = document.createElement("figure");
-    figure.classList.add("figure-bebida")
-    figure.innerHTML = `<img src="${bebida.imagen}" alt="${bebida.nombre}">
-<figcaption>${bebida.nombre}</figcaption>
-<span class="span-price"> $${bebida.precio}</span>
-<button class="boton-al-carrito" id="${bebida.id}">Agregar Al carrito</button> `;
-
+  for (const bebida of bebidas) {
+    const figure = crearFigura(bebida);
     contenedorDeProductos.append(figure);
-  })
+  }
 }
-cargarBebidas()
-const figureBebida = document.querySelector(".figure-bebida");
-let botonAgregarAlCarrito = document.querySelectorAll(".boton-al-carrito");
-const buttonsubmit = document.querySelector(".button-submit")
-
-
-botonAgregarAlCarrito.forEach(boton => {
-  boton.addEventListener("click", agregarAlcarrito)
-
-})
-
 
 function agregarAlcarrito(e) {
-  const idboton = e.currentTarget.id;
-
-  const bebidasagregada = bebidas.find(bebida => bebida.id === idboton)
+  const idboton = e.target.id;
+  const bebidaAgregada = bebidas.find(bebida => bebida.id === idboton);
 
   if (bebidasEncarrito.some(bebida => bebida.id === idboton)) {
     const bebidaIndex = bebidasEncarrito.findIndex(bebida => bebida.id === idboton);
-    bebidasEncarrito[bebidaIndex].cantidad += 1
-
+    bebidasEncarrito[bebidaIndex].cantidad += 1;
   } else {
-
-    bebidasagregada.cantidad = 1;
-    bebidasEncarrito.push(bebidasagregada);
+    bebidaAgregada.cantidad = 1;
+    bebidasEncarrito.push(bebidaAgregada);
   }
 
   indicadorCarrito();
-
-  localStorage.setItem("bebidas-en-carrito", JSON.stringify(bebidasEncarrito))
+  localStorage.setItem("bebidas-en-carrito", JSON.stringify(bebidasEncarrito));
 }
-
 
 function indicadorCarrito() {
-  let indicador = bebidasEncarrito.reduce((acumulador, bebida) => acumulador + bebida.cantidad, 0);
+  const indicador = bebidasEncarrito.reduce((acumulador, bebida) => acumulador + bebida.cantidad, 0);
   indicadorCantidadCarrito.innerText = indicador;
-  console.log(indicador)
+}
+
+function crearFigura(bebida) {
+  const figure = document.createElement("figure");
+  figure.classList.add("figure-bebida");
+  figure.innerHTML = `<img src="${bebida.imagen}" alt="${bebida.nombre}">
+    <figcaption>${bebida.nombre}</figcaption>
+    <span class="span-price"> $${bebida.precio}</span>
+    <button class="boton-al-carrito" id="${bebida.id}">Agregar Al carrito</button>`;
+  return figure;
+}
+
+function limpiarContenedor() {
+  contenedorDeProductos.innerHTML = "";
+}
+
+function mostrarBebidasFiltradas(bebidasFiltradas) {
+  bebidasFiltradas.forEach(bebida => {
+    const figure = crearFigura(bebida);
+    contenedorDeProductos.append(figure);
+  });
+}
+
+function filtrarBebidas() {
+  const filtro = searchInput.value.toLowerCase();
+  const bebidasFiltradas = bebidas.filter(bebida => bebida.nombre.toLowerCase().includes(filtro));
+  limpiarContenedor();
+  mostrarBebidasFiltradas(bebidasFiltradas);
 }
 
 
+contenedorDeProductos.addEventListener("click", function (e) {
+  if (e.target.classList.contains("boton-al-carrito")) {
+    agregarAlcarrito(e);
+  }
+});
+
+searchInput.addEventListener("input", filtrarBebidas);
+
+cargarBebidas();
 
 
 
 
-
-
-
-
-
-
-
-
-// buttonSubmit.addEventListener("click", (e) => {
-//     // Alternar la clase "active" en el botón
-//     e.currentTarget.classList.toggle("active");
-
-//     // Cambiar el texto del botón dependiendo de si tiene la clase "active"
-//     if (e.currentTarget.classList.contains("active")) {
-//         e.currentTarget.innerHTML = "Pedido confirmado";
-//     } else {
-//         e.currentTarget.innerHTML = "confirmar pedido";
-//     }
-// });
