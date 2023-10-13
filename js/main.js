@@ -15,16 +15,16 @@ const bebidas = [
 ];
 
 const contenedorDeProductos = document.querySelector(".contenedor-de-productos");
-const indicadorCantidadCarrito= document.querySelector("#carrito-cantidad");
+const indicadorCantidadCarrito = document.querySelector("#carrito-cantidad");
 const tablaDeProductos = document.querySelector("#tabla-de-productos")
 let bebidasEncarrito;
+let bebidasEncarritoLStorage = localStorage.getItem("bebidas-en-carrito");
 
-const bebidasEncarritoLStorage=localStorage.getItem("bebidas-en-carrito");
 
-if(bebidasEncarritoLStorage){
+if (bebidasEncarritoLStorage) {
   bebidasEncarrito = JSON.parse(bebidasEncarritoLStorage);
   indicadorCarrito()
-}else{
+} else {
   bebidasEncarrito = []
 }
 
@@ -58,27 +58,27 @@ botonAgregarAlCarrito.forEach(boton => {
 function agregarAlcarrito(e) {
   const idboton = e.currentTarget.id;
 
-  const bebidasagregadas = bebidas.find(bebida => bebida.id === idboton)
+  const bebidasagregada = bebidas.find(bebida => bebida.id === idboton)
 
   if (bebidasEncarrito.some(bebida => bebida.id === idboton)) {
-    const bebidaIndex= bebidasEncarrito.findIndex(bebida => bebida.id=== idboton);
-    bebidasEncarrito[bebidaIndex].cantidad+=1
+    const bebidaIndex = bebidasEncarrito.findIndex(bebida => bebida.id === idboton);
+    bebidasEncarrito[bebidaIndex].cantidad += 1
 
   } else {
-    
-    bebidasagregadas.cantidad = 1;
-    bebidasEncarrito.push(bebidasagregadas);
+
+    bebidasagregada.cantidad = 1;
+    bebidasEncarrito.push(bebidasagregada);
   }
 
   indicadorCarrito();
 
-  localStorage.setItem("bebidas-en-carrito",JSON.stringify(bebidasEncarrito))
+  localStorage.setItem("bebidas-en-carrito", JSON.stringify(bebidasEncarrito))
 }
 
 
-function indicadorCarrito(){
-  let indicador = bebidasEncarrito.reduce((acumulador,bebida) => acumulador + bebida.cantidad, 0);
-  indicadorCantidadCarrito.innerText = indicador; 
+function indicadorCarrito() {
+  let indicador = bebidasEncarrito.reduce((acumulador, bebida) => acumulador + bebida.cantidad, 0);
+  indicadorCantidadCarrito.innerText = indicador;
   console.log(indicador)
 }
 
