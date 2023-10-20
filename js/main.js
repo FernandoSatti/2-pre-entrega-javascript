@@ -1,19 +1,11 @@
 
-const bebidas = [
-  { nombre: 'gancia', volumen: 950 + "ml", precio: 2400, imagen: "./img/bebidas/Aperitivo-Americano-Gancia-950.webp", id: "gancia00" },
-  { nombre: "aperol", volumen: 750 + "ml", precio: 2000, imagen: "./img/bebidas/Aperitivo-Aperol-750cc.webp", id: "aperol01" },
-  { nombre: 'Smirnoff Rapsberry', volumen: 700 + "ml", precio: 2800, imagen: "./img/bebidas/vodka-smirnoff-raspberry-700-ml.webp", id: "sminrnoff02" },
-  { nombre: 'fernet branca', volumen: 750 + "ml", precio: 3900, imagen: "./img/bebidas/fernetbranca.webp", id: "fernet03" },
-  { nombre: "blue label", volumen: 750 + "ml", precio: 11400, imagen: "./img/bebidas/blue-label-750cc.webp", id: "bluelable04" },
-  { nombre: "coco bongo", volumen: 750 + "ml", precio: 2200, imagen: "./img/bebidas/coco-bongo.webp", id: "cocobongo05" },
-  { nombre: "Bombey sapphire gin", volumen: 750 + "ml", precio: 4800, imagen: "./img/bebidas/bombay-sapphire-gin-750-ml.webp", id: "bombay06" },
-  { nombre: "cerveza corona", volumen: 710 + "ml", precio: 980, imagen: "./img/bebidas/cerveza_corona-7101ml.webp", id: "corona07" },
-  { nombre: "sernova rapsberry", volumen: 750 + "ml", precio: 1350, imagen: "./img/bebidas/Sernova.webp", id: "sernova08" },
-  { nombre: "tres plumas", volumen: 700 + "ml", precio: 1900, imagen: "./img/bebidas/tres-plumas-kiwi-700cc.webp", id: "tresplumas9" },
-  { nombre: "absolut original", volumen: 750 + "ml", precio: 9800, imagen: "./img/bebidas/absolut-original 750ml.webp", id: "absolut10" },
-  { nombre: "campari", volumen: 750 + "ml", precio: 2500, imagen: "./img/bebidas/campari-750ml.webp", id: "campari11" },
-];
-
+let bebidas = [];
+fetch("./js/bebidas.json")
+.then(respuesta => respuesta.json())
+.then(dato =>{
+  bebidas= dato;
+  cargarBebidas(bebidas);
+})
 const contenedorDeProductos = document.querySelector(".contenedor-de-productos");
 const indicadorCantidadCarrito = document.querySelector("#carrito-cantidad");
 const searchInput = document.getElementById("searchInput");
@@ -35,6 +27,23 @@ function cargarBebidas() {
 }
 
 function agregarAlcarrito(e) {
+  Toastify({
+    text: "Agregado Al Carrito",
+    duration: 2000,
+    close: true,
+    gravity: "top",
+    position: "right", 
+    stopOnFocus: true, 
+    style: {
+      background: "linear-gradient(to right, rgb(240, 118, 4), rgb(240, 169, 4))",
+      borderRadius: "2rem",
+      textShadow: "1px 1px 1px black",
+      fontSize:"0.85rem",
+      textTransform:"uppercase"
+    },
+    onClick: function(){} 
+  }).showToast();
+
   const idboton = e.target.id;
   const bebidaAgregada = bebidas.find(bebida => bebida.id === idboton);
 
@@ -45,7 +54,6 @@ function agregarAlcarrito(e) {
     bebidaAgregada.cantidad = 1;
     bebidasEncarrito.push(bebidaAgregada);
   }
-
   indicadorCarrito();
   localStorage.setItem("bebidas-en-carrito", JSON.stringify(bebidasEncarrito));
 }
@@ -89,10 +97,9 @@ contenedorDeProductos.addEventListener("click", function (e) {
     agregarAlcarrito(e);
   }
 });
-
 searchInput.addEventListener("input", filtrarBebidas);
 
-cargarBebidas();
+
 
 
 

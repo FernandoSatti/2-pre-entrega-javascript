@@ -7,24 +7,21 @@ form {
     display: flex;
     justify-content: center;
     flex-direction: column;
-}
-
-label {
-    display: block;
-    margin-bottom: 8px;
-    color: #fcfcfc;
-    text-shadow: 2px 2px 2px black;
-}
-
-input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 16px;
-    box-sizing: border-box;
-    color: rgb(85, 84, 84);
-
-    &:focus{
-        outline: 2px solid rgb(212, 105, 5)
+    label {
+        display: block;
+        margin-bottom: 8px;
+        color: #fcfcfc;
+        text-shadow: 2px 2px 2px black;
+    }
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+        color: rgb(85, 84, 84);
+        &:focus{
+            outline: 2px solid rgb(212, 105, 5)
+        }
     }
 }
 
@@ -34,12 +31,12 @@ input {
     cursor: pointer;
     text-shadow: 1.5px 1.5px 1.5px black;
     padding: 5px 50px;
-}
-
-
-.button-submit:hover {
-    background-color: $colorbuttonhover;
-    transition: 300ms ease;
+    &:hover{
+        .button-submit:hover {
+            background-color: $colorbuttonhover;
+            transition: 300ms ease;
+        }
+    }
 }
 
 .vaciar-td{

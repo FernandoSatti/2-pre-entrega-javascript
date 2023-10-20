@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -42,8 +41,7 @@ body {
   background-color: rgb(240, 169, 4);
   border: 2px solid black;
   border-radius: 2px;
-  position: relative;
-  bottom: 7px;
+  text-align: center;
 }
 .lupa-svg:hover {
   transform: rotate(360deg);
@@ -86,7 +84,6 @@ figure img:hover {
 }
 figure figcaption {
   font-size: 1em;
-  /* Puedes ajustar el tamaño inicial según tus necesidades */
   white-space: nowrap;
   background-color: #fff;
   text-align: center;
@@ -141,89 +138,11 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  /* Altura mínima del 100% del viewport */
   margin: 0;
 }
 
 main {
   flex: 1;
-}
-
-.carrito {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: rgb(240, 169, 4);
-  color: #fff;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
-}
-
-.carrito:hover {
-  background-color: #e7e2e2;
-}
-
-.icono-carrito {
-  width: 24px;
-  height: 24px;
-}
-
-.cantidad {
-  position: absolute;
-  top: 10px;
-  right: 40px;
-  background-color: #e74c3c;
-  color: #fff;
-  padding: 4px 8px;
-  font-size: 14px;
-  border-radius: 50%;
-}
-
-.cantidad-nav {
-  position: absolute;
-  top: 40px;
-  right: 50px;
-  background-color: #e74c3c;
-  color: #fff;
-  padding: 4px 8px;
-  font-size: 14px;
-  border-radius: 50%;
-}
-
-.tabla-de-productos {
-  background-color: rgba(100, 6, 6, 0.418);
-  color: orange;
-  margin: 20px;
-  padding: 10px;
-  border-radius: 10px;
-  overflow: hidden;
-}
-.tabla-de-productos table {
-  width: 100%;
-  border-collapse: collapse;
-}
-.tabla-de-productos table th,
-.tabla-de-productos table td {
-  border: 1px solid orange;
-  padding: 10px;
-  text-align: left;
-  text-shadow: 1px 1px 1px black;
-}
-
-th {
-  background-color: #ff9900;
-  /* Naranja más claro para los títulos */
-}
-
-.carrito-de-compras {
-  width: 35px;
 }
 
 .nav-link-edit:hover {
@@ -243,7 +162,7 @@ th {
   width: 170px;
 }
 
-@media screen and (min-width: 280px) {
+@media screen and (min-width: 90px) and (max-width: 320px) {
   .contenedor-de-productos {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -258,15 +177,52 @@ th {
     transition: color 0.3s ease-in-out;
   }
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 0px) and (max-width: 480px) {
+  .tabla-de-productos {
+    font-size: 5px;
+  }
+  .tabla-de-productos .indicador-th,
+  .tabla-de-productos .indicador-td {
+    display: none;
+  }
+  .tabla-de-productos .titulos-tr th,
+  .tabla-de-productos .info-titulo-tr td {
+    padding: 5px;
+  }
+  .tabla-de-productos .cantidad-td,
+  .tabla-de-productos .cantidad-th {
+    display: none;
+  }
+  .tabla-de-productos .vaciar-carrito {
+    margin-left: 0px;
+    padding: 0px;
+    font-size: 12px;
+  }
+  .tabla-de-productos .carrito-total {
+    font-size: 12px;
+  }
+  .tabla-de-productos #total {
+    font-size: 12px !important;
+  }
+  .tabla-de-productos #carrito-container {
+    margin-left: -20px !important;
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 480px) and (max-width: 480px) {
   .contenedor-de-productos {
     grid-template-columns: repeat(3, 1fr);
   }
   figure figcaption {
     font-size: 0.8em;
   }
+  .tabla-de-productos {
+    font-size: 12px;
+  }
+  .indicador-th,
+  .indicador-td {
+    display: none;
+  }
 }
-/* Media query para pantallas medianas (tabletas) */
 @media screen and (min-width: 768px) {
   .contenedor-de-productos {
     grid-template-columns: repeat(4, 1fr);
@@ -275,13 +231,17 @@ th {
     font-size: 0.9em;
   }
 }
-/* Media query para pantallas grandes (laptops) */
 @media screen and (min-width: 960px) {
   .contenedor-de-productos {
     grid-template-columns: repeat(6, 1fr);
     gap: 20px;
   }
 }
+.tabla-de-productos table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
 form {
   max-width: 20em;
   margin: 20px auto;
@@ -292,22 +252,20 @@ form {
   justify-content: center;
   flex-direction: column;
 }
-
-label {
+form label {
   display: block;
   margin-bottom: 8px;
   color: #fcfcfc;
   text-shadow: 2px 2px 2px black;
 }
-
-input {
+form input {
   width: 100%;
   padding: 8px;
   margin-bottom: 16px;
   box-sizing: border-box;
   color: rgb(85, 84, 84);
 }
-input:focus {
+form input:focus {
   outline: 2px solid rgb(212, 105, 5);
 }
 
@@ -318,8 +276,7 @@ input:focus {
   text-shadow: 1.5px 1.5px 1.5px black;
   padding: 5px 50px;
 }
-
-.button-submit:hover {
+.button-submit:hover .button-submit:hover {
   background-color: rgb(240, 118, 4);
   transition: 300ms ease;
 }
@@ -391,6 +348,10 @@ input:focus {
   text-shadow: 2px 1px 1px black;
 }
 
+.carrito-de-compras {
+  width: 35px;
+}
+
 .carrito-comprado {
   border: 1px solid black;
   background-color: rgba(100, 6, 6, 0.418);
@@ -407,6 +368,102 @@ input:focus {
 
 .disabled {
   display: none;
+}
+
+.carrito {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgb(240, 169, 4);
+  color: #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.carrito:hover {
+  background-color: #e7e2e2;
+}
+
+.icono-carrito {
+  width: 24px;
+  height: 24px;
+}
+
+.cantidad {
+  position: absolute;
+  top: 10px;
+  right: 40px;
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 14px;
+  border-radius: 50%;
+}
+
+.cantidad-nav {
+  position: absolute;
+  top: 40px;
+  right: 50px;
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 14px;
+  border-radius: 50%;
+}
+
+.tabla-de-productos {
+  background-color: rgba(100, 6, 6, 0.418);
+  color: orange;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.tabla-de-productos table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.tabla-de-productos table th,
+.tabla-de-productos table td {
+  border: 1px solid #ff9900;
+  padding: 10px;
+  text-align: left;
+  text-shadow: 1px 1px 1px black;
+}
+
+th {
+  background-color: rgba(241, 167, 6, 0.63);
+}
+
+.arrow {
+  background: none;
+}
+
+.button-arrow {
+  background-color: rgb(240, 169, 4);
+  margin: 0px;
+  padding: 5px 10px;
+  border: 0.5px solid black;
+  border-radius: 7px;
+}
+.button-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.486);
+}
+
+.a-arrow {
+  display: flex;
+  justify-content: center;
+}
+
+.vaciar-carrito:hover, .carrito-comprar:hover {
+  background-color: #df8107 !important;
 }
 
 /*# sourceMappingURL=style.css.map */

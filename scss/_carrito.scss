@@ -58,6 +58,10 @@
                 text-shadow: 2px 1px 1px black;
         }
 }
+.carrito-de-compras{
+        width: 35px;
+}
+
 .carrito-comprado {
         border: 1px solid black;
         background-color: rgba(100, 6, 6, 0.418);
@@ -66,6 +70,7 @@
         text-shadow: 2px 1px 1px black;
         padding: 20px 0px;
 }
+
 .carrito-producto-eliminar {
         background-color: rgba(207, 126, 4, 0);
         border: none;
@@ -73,4 +78,101 @@
 
 .disabled {
         display: none;
+}
+
+.carrito {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: rgb(240, 169, 4);
+        color: #fff;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease;
+}
+
+.carrito:hover {
+        background-color: #e7e2e2;
+}
+
+.icono-carrito {
+        width: 24px;
+        height: 24px;
+}
+
+.cantidad {
+        position: absolute;
+        top: 10px;
+        right: 40px;
+        background-color: #e74c3c;
+        color: #fff;
+        padding: 4px 8px;
+        font-size: 14px;
+        border-radius: 50%;
+}
+
+.cantidad-nav {
+        position: absolute;
+        top: 40px;
+        right: 50px;
+        background-color: #e74c3c;
+        color: #fff;
+        padding: 4px 8px;
+        font-size: 14px;
+        border-radius: 50%;
+}
+
+.tabla-de-productos {
+        background-color: rgba(100, 6, 6, 0.418);
+        color: orange;
+        margin: 20px;
+        padding: 10px;
+        border-radius: 10px;
+        overflow: hidden;
+        table {
+                width: 100%;
+                border-collapse: collapse;
+                th,
+                td {
+                        border: 1px solid #ff9900;;
+                        padding: 10px;
+                        text-align: left;
+                        text-shadow: 1px 1px 1px black;
+                }
+        }
+}
+
+th {
+        background-color: rgba(241, 167, 6, 0.63);
+}
+
+.arrow {
+        background: none;
+}
+
+.button-arrow {
+        background-color: $colorbutton;
+        margin: 0px;
+        padding: 5px 10px;
+        border: 0.5px solid black;
+        border-radius: 7px;
+        &:hover {
+                background-color: rgba(255, 255, 255, 0.486);
+        }
+}
+
+.a-arrow {
+        display: flex;
+        justify-content: center;
+}
+.vaciar-carrito,.carrito-comprar{
+        &:hover{
+                background-color: #df8107 !important;
+        }
 }
