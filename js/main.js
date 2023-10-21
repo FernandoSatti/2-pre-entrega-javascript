@@ -27,6 +27,7 @@ function cargarBebidas() {
 }
 
 function agregarAlcarrito(e) {
+  
   Toastify({
     text: "Agregado Al Carrito",
     duration: 2000,
