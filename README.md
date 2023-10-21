@@ -6,11 +6,11 @@ Alfonsa es una plataforma de venta de bebidas. La pagina proporciona a los usuar
 
 ### Tecnologías Utilizadas:
 
-- **HTML5:** El lenguaje de marcado se utiliza para la estructura básica de las páginas.
+- **HTML5:** El lenguaje de marcado se utiliza para la estructura básica de la página.
   
 - **CSS3:** Se utiliza para el diseño y estilo de la interfaz de usuario.
 
-- **JavaScript:** El lenguaje de programación se utiliza para la lógica dinámica de la aplicación. Se empleó la manipulación del DOM, la gestión del carrito de compras y la interactividad de la interfaz. el uso de LocalStorage y Eventos.
+- **JavaScript:** El lenguaje de programación se utiliza para la lógica dinámica de la aplicación. En este proyecto se empleó la manipulación del DOM, la gestión del carrito de compras,la interactividad de la interfaz. el uso de LocalStorage,Eventos, validación del formulario,notificaciones y confirmaciones con el uso de librerias.
 
 ### Frameworks Utilizados:
 
