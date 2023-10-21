@@ -4,7 +4,7 @@
 
 Alfonsa es una plataforma de venta de bebidas. La pagina proporciona a los usuarios la capacidad de explorar el catálogo de bebidas, buscar los productos y agregar artículos al carrito de compras. Además, cuenta con una sección de carrito de compras que muestra la lista de productos seleccionados, permite la eliminación de elementos y facilita el proceso de compra.
 
-### Tecnologías Utilizadas
+### Tecnologías Utilizadas:
 
 - **HTML5:** El lenguaje de marcado se utiliza para la estructura básica de las páginas.
   
@@ -12,13 +12,29 @@ Alfonsa es una plataforma de venta de bebidas. La pagina proporciona a los usuar
 
 - **JavaScript:** El lenguaje de programación se utiliza para la lógica dinámica de la aplicación. Se empleó la manipulación del DOM, la gestión del carrito de compras y la interactividad de la interfaz. el uso de LocalStorage y Eventos.
 
+### Frameworks Utilizados:
+
+- **Boostrap:** Se utilizó para la nav del sitio y para el carrousel de la interfaz principal.
+  
+- **Sass:** Como preprocesador de Csss
+
+- **NodeJs:** se instaló para el uso del npm (Node Package Manager), para la instación de Sass.
+
+### Librerias utilizadas:
+
+- **Toastify:** es una biblioteca que se utilizó en main.js para mostrar notificaciones al usuario cuando se realizó acciones como agregar productos al carrito o eliminarlo haciendo click en la papelera. Proporciona notificaciones visuales atractivas y personalizables, que mejoran la experiencia del usuario.
+
+- **SweetAlert:** es una biblioteca que se emplea en carrito.js para mostrar confirmaciones al usuario en casos como vaciar el carrito y procesar la compra. Ofrece ventanas modales elegantes y personalizables que mejoran la apariencia y usabilidad de las confirmaciones en el sitio web.
+
 ### Estructura del Proyecto
 
-- **index.html:** La página principal que muestra la lista de Bebidas y proporciona la funcionalidad de búsqueda.
+- **Carga de Datos iniciales:** Utiliza el método fetch para cargar los datos de bebidas desde un archivo JSON llamado "bebidas.json". Los datos se almacenan en la variable bebidas.
+
+- **index.html:** La página principal que muestra la lista de Bebidas y proporciona la funcionalidad de búsqueda de filtrado.
 
 - **carrito.html:** La página que muestra el contenido del carrito de compras, permite al usuario eliminar lo seleccionado o completar la compra.
 
-- **main.js:** Contiene la lógica principal de la aplicación, incluida la carga de productos, la gestión del carrito de compras y la interactividad de la interfaz.
+- **main.js:** Contiene la lógica principal de la web, incluida la carga de productos, la gestión del carrito de compras y la interactividad de la interfaz.
 
 - **carrito.js:** Contiene la lógica específica para la página del carrito, incluida la visualización de productos en el carrito, la eliminación de elementos y la funcionalidad de compra.
 
@@ -46,13 +62,36 @@ Alfonsa es una plataforma de venta de bebidas. La pagina proporciona a los usuar
 
 4. Completa la compra haciendo clic en el botón "Comprar ahora".
 
-### Estado del Proyecto
+## Proceso de Compra y Confirmación
 
-El proyecto está en desarrollo activo 
+### `carritoComprar.addEventListener("click", function () { ... });`
+Cuando el usuario hace clic en el botón "Comprar" en el carrito de compras, se inicia el proceso de compra. Se realiza la validación del formulario y, si es válido, se procede a la confirmación de la compra.
+
+#### `formularioEsValido()`
+La función `formularioEsValido()` se utiliza para validar el formulario de compra. Se verifica si los campos requeridos, como nombre, correo y domicilio, están completos y si el correo electrónico tiene un formato válido. Si el formulario es válido, la función retorna `true`.
+
+#### `procesarCompra()`
+Si el formulario es válido, se muestra una ventana modal atractiva utilizando la biblioteca `SweetAlert`. La ventana modal pregunta al usuario si desea realizar el pago. Se muestra un botón "Sí, comprar" y un botón de cancelación. Si el usuario hace clic en "Sí, comprar," se confirma la compra y se ejecutan las siguientes acciones:
+
+- Se muestra una ventana  de éxito agradeciendo al usuario por su compra.
+- Se eliminan las bebidas del carrito (`bebidasEncarrito` se vacía).
+- Se borra el carrito almacenado en `localStorage`.
+- Se ajustan las clases de elementos HTML para ocultar el carrito y mostrar un mensaje de compra exitosa.
+- Se habilita un botón para regresar a la tienda (`buttonArrow`).
+- Se elimina el formulario dejando la pagina del carrito con un unico cartel: "muchas gracias por su compra"
 
 ## Links
 
-Proceso a dejar los links de mi proyecto:
+Dejo los links de acceso al proyecto:
+
 - Github Pages: https://fernandosatti.github.io/2-pre-entrega-javascript/index.html
 - Repositorio:  https://github.com/FernandoSatti/2-pre-entrega-javascript
 - Netlify:      https://alfonsabebidas.netlify.app
+
+
+
+
+
+
+
+
