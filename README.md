@@ -86,8 +86,8 @@ Si el formulario es válido, se muestra una ventana modal atractiva utilizando l
 
 Dejo los links de acceso al proyecto:
 
-- Github Pages: https://fernandosatti.github.io/2-pre-entrega-javascript/index.html
-- Repositorio:  https://github.com/FernandoSatti/2-pre-entrega-javascript
+- Github Pages: https://fernandosatti.github.io/Javascript-Proyecto-final
+- Repositorio:  https://github.com/FernandoSatti/Javascript-Proyecto-final
 - Netlify:      https://alfonsabebidas.netlify.app
 
 
