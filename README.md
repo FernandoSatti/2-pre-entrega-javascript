@@ -62,6 +62,8 @@ Alfonsa es una plataforma de venta de bebidas. La pagina proporciona a los usuar
 
 4. Completa la compra haciendo clic en el botón "Comprar ahora".
 
+5. No podrás realizar la compra sin antes rellenar el formulario y colocar un email correcto.
+
 ## Proceso de Compra y Confirmación
 
 ### `carritoComprar.addEventListener("click", function () { ... });`
